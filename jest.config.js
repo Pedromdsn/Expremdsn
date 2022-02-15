@@ -1,6 +1,6 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  collectCoverage: true,
+  collectCoverage: false,
   preset: 'ts-jest',
   testEnvironment: 'node',
   moduleNameMapper: {

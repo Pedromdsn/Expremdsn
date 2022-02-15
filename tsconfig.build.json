@@ -17,4 +17,5 @@
       "@/router": ["src/libs/lib/index.ts"]
     }
   },
+  "exclude": ["src/**/*", "tests/**/*"]
 }

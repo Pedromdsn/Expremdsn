@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import fs from 'fs'
+import { lstatSync, readdirSync } from 'fs'
 import { ExpressPedromdsnLib, Middleware } from '..'
 
 import { Router } from 'express'
@@ -9,7 +9,7 @@ const router = Router()
 const debug = false
 
 const getWebPath = (file: string) => {
-  return file.replace('index.ts', '').replace('_middleware.ts', '').replace('.ts', '')
+  return '/' + file.replace('index.ts', '').replace('_middleware.ts', '').replace('.ts', '')
 }
 
 interface middlewareType {
@@ -26,7 +26,7 @@ const getMiddlewares = (path: string) =>
   middlewares.length > 0 ? middlewares.filter((e) => path === getWebPath(e.path))[0] : null
 
 const loadAllFile = async (dir: string) => {
-  const files = fs.readdirSync(dir)
+  const files = readdirSync(dir)
 
   for (const file of files) {
     const pathToFile = `${dir}/${file}`
@@ -34,7 +34,7 @@ const loadAllFile = async (dir: string) => {
     const webPath = getWebPath(absolutePath)
 
     // Verify if file is a directory
-    if (fs.lstatSync(`${pathToFile}`).isDirectory()) {
+    if (lstatSync(`${pathToFile}`).isDirectory()) {
       loadAllFile(`${pathToFile}`)
       continue
     }

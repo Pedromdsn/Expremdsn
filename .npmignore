@@ -1,0 +1,7 @@
+**/*
+
+!dist/*
+!LICENSE
+!package.json
+
+
