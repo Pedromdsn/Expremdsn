@@ -1,15 +1,15 @@
 import { NextFunction, Request, Response } from 'express'
 
 export interface ExpressPedromdsnLib {
-  middleware?: Middleware
-  getMethod?: GetMethod
-  postMethod?: PostMethod
-  putMethod?: PutMethod
-  deleteMethod?: DeleteMethod
-  headMethod?: HeadMethod
-  patchMethod?: PatchMethod
-  optionsMethod?: OptionsMethod
-  allMethods?: AllMethods
+	middleware?: Middleware
+	getMethod?: GetMethod
+	postMethod?: PostMethod
+	putMethod?: PutMethod
+	deleteMethod?: DeleteMethod
+	headMethod?: HeadMethod
+	patchMethod?: PatchMethod
+	optionsMethod?: OptionsMethod
+	allMethods?: AllMethods
 }
 
 export type Method = (req: Req, res: Res) => void
